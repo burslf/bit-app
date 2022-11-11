@@ -7,12 +7,19 @@ import Header from '../components/Header';
 import { useNavigation } from '@react-navigation/native';
 import { Icon, Text, useTheme } from '@rneui/themed';
 import Animated, { FadeInUp, FadeOutDown, Layout } from 'react-native-reanimated';
+import GetStarted from '../navigation/screens/GetStarted';
 
 const BottomNav = createBottomTabNavigator();
 
 const menu = {
     'Home': {
         name: 'Home',
+        activeIcon: 'home',
+        inactiveIcon: 'home-outline',
+        type: 'ionicon'
+    },
+    'GetStarted': {
+        name: 'GetStarted',
         activeIcon: 'home',
         inactiveIcon: 'home-outline',
         type: 'ionicon'
@@ -34,20 +41,15 @@ const menu = {
 
 const Drawer = () => {
     const { theme, updateTheme } = useTheme();
-
+    
     return (
-      <BottomNav.Navigator initialRouteName='Home' tabBar={(props) => {
-        return (
-            <Animated.View entering={FadeInUp} exiting={FadeOutDown} layout={Layout.duration(200)}>
-                <BottomTabBar {...props}/>
-            </Animated.View>
-        )
-      }} 
+      <BottomNav.Navigator initialRouteName='Home'
       screenOptions={({route}) => ({
         tabBarIcon: ({color, focused, size}) => {
-            console.log(color)
-            return <Icon name={focused ? menu[route.name].activeIcon: menu[route.name].inactiveIcon} size={size} color={color} type={menu[route.name].type}/>
             
+            return (
+                <Icon name={focused ? menu[route.name].activeIcon: menu[route.name].inactiveIcon} size={size} color={color} type={menu[route.name].type}/>
+            )
         },
         tabBarActiveTintColor: '#ffffff',
         tabBarInactiveTintColor: '#ffffff',
@@ -57,8 +59,8 @@ const Drawer = () => {
         headerShown: false,
       })}>
         <BottomNav.Screen name="Home" component={Home} />
+        <BottomNav.Screen name="GetStarted" component={GetStarted} />
         <BottomNav.Screen name="Profile" component={Profile} />
-        
         <BottomNav.Screen name="Settings" component={Settings} />
 
       </BottomNav.Navigator>

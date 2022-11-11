@@ -24,32 +24,13 @@ export default function App() {
       <View style={{
         backgroundColor: mainTheme.darkColors.background,
         flex: 1, 
-        // height: '100%',
-        // alignItems: 'center',
       }}>
         <NavigationContainer>
-          {/* <Header/> */}
           <Drawer/>
-
-          {/* <Stack.Navigator screenOptions={{headerShown: false}}>
-            <Stack.Screen name='home' component={Home}/>
-            <Stack.Screen name='settings' component={Settings}/>
-   
-          </Stack.Navigator> */}
          </NavigationContainer>
       </View>
-
       </ThemeProvider>
 
     </SafeAreaProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  }
-});
