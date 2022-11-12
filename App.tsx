@@ -1,26 +1,35 @@
 import 'react-native-gesture-handler';
 import { StatusBar } from 'react-native';
-import { StyleSheet, Text, useColorScheme, View } from 'react-native';
-import React from 'react';
+import { View } from 'react-native';
+import React, { useEffect, useState } from 'react';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
 import { mainTheme } from './theme/theme';
-import { ThemeProvider, Button, useTheme } from '@rneui/themed';
-import Home from './src/navigation/screens/Home';
-import Settings from './src/navigation/screens/Settings';
-import Header from './src/components/Header';
+import { ThemeProvider } from '@rneui/themed';
 import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import Drawer from './src/components/Drawer';
-
-const Stack = createNativeStackNavigator();
+import GetStarted from './src/navigation/screens/GetStarted';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 
 export default function App() {
-  const {theme} = useTheme();
+  const [isLogged, setIsLogged] = useState(false);
+
+  useEffect(() => {
+    AsyncStorage.removeItem('registered')
+    AsyncStorage.getItem('registered', ((err, res) => {
+      if (res) {
+        setIsLogged(true)
+      }
+    }))
+  }, [])
+  
 
   return (
     <SafeAreaProvider>
       <ThemeProvider theme={mainTheme}>
       <StatusBar barStyle='default' backgroundColor={mainTheme.darkColors.background}/>
+      
+      { 
+      isLogged ?
       <View style={{
         backgroundColor: mainTheme.darkColors.background,
         flex: 1, 
@@ -29,6 +38,16 @@ export default function App() {
           <Drawer/>
          </NavigationContainer>
       </View>
+      :
+      <View style={{
+        backgroundColor: mainTheme.darkColors.background,
+        flex: 1, 
+      }}>
+        <GetStarted/>
+      </View>
+      }
+      
+      
       </ThemeProvider>
 
     </SafeAreaProvider>

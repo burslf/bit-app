@@ -11,7 +11,7 @@ import {
   Text,
   Button
 } from '@rneui/themed';
-import { SettingData, SettingsData, settingsData } from '../../contents/settings';
+import { SettingData, SettingsData, settingsData } from '../contents/settings';
 
 const sections: SettingsData[] = settingsData
 

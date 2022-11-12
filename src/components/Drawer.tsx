@@ -3,10 +3,7 @@ import { BottomTabBar, createBottomTabNavigator } from '@react-navigation/bottom
 import Home from '../navigation/screens/Home';
 import Settings from '../navigation/screens/Settings';
 import Profile from '../navigation/screens/Profile';
-import Header from '../components/Header';
-import { useNavigation } from '@react-navigation/native';
 import { Icon, Text, useTheme } from '@rneui/themed';
-import Animated, { FadeInUp, FadeOutDown, Layout } from 'react-native-reanimated';
 import GetStarted from '../navigation/screens/GetStarted';
 
 const BottomNav = createBottomTabNavigator();
@@ -14,12 +11,6 @@ const BottomNav = createBottomTabNavigator();
 const menu = {
     'Home': {
         name: 'Home',
-        activeIcon: 'home',
-        inactiveIcon: 'home-outline',
-        type: 'ionicon'
-    },
-    'GetStarted': {
-        name: 'GetStarted',
         activeIcon: 'home',
         inactiveIcon: 'home-outline',
         type: 'ionicon'
@@ -59,7 +50,6 @@ const Drawer = () => {
         headerShown: false,
       })}>
         <BottomNav.Screen name="Home" component={Home} />
-        <BottomNav.Screen name="GetStarted" component={GetStarted} />
         <BottomNav.Screen name="Profile" component={Profile} />
         <BottomNav.Screen name="Settings" component={Settings} />
 

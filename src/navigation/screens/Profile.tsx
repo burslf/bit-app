@@ -12,7 +12,7 @@ const Profile = () => {
             alignItems: 'center',
             justifyContent: 'center'
         }}>
-            <Text style={{color: theme.colors.primary, fontSize: 18, fontWeight: 'bold'}}>Hello</Text>
+            <Text style={{color: theme.colors.primary, fontSize: 18, fontWeight: 'bold'}}>Profile page</Text>
         </View>
     )
 }

@@ -8,12 +8,12 @@ const mainTheme = createTheme({
     },
   },
   lightColors: {
-    background: '#296D91',
+    background: '#9800FF',
     primary: "#000000",
     secondary: "blue"
   },
   darkColors: {
-    background: '#296D91',
+    background: '#9800FF',
     primary: "#ffffff",
     secondary: "#2D2955"
   },
