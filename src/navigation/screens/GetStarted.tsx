@@ -7,9 +7,10 @@ import PhoneInput from 'react-native-phone-input';
 import CountryPicker from 'react-native-country-picker-modal'
 import { CountryCode, Country } from '../countryTypes';
 
-const GetStarted = () => {
+const GetStarted = ({navigation}) => {
   const { theme } = useTheme();
-  
+  // const navigation = useNavigation();
+
   // Refs
   const phoneRef = useRef(null);
   
@@ -58,7 +59,11 @@ const selectCountry = (country:Country) => {
 }
 
 const confirmPhone = () => {
-
+  if (isValidNumber){
+    navigation.navigate('Otp', {phoneNumber: phoneRef.current.getValue()})
+  }else{
+    setIsValidNumber(false)
+  }
 }
 
   return (

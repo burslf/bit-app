@@ -52,7 +52,6 @@ const Drawer = () => {
         <BottomNav.Screen name="Home" component={Home} />
         <BottomNav.Screen name="Profile" component={Profile} />
         <BottomNav.Screen name="Settings" component={Settings} />
-
       </BottomNav.Navigator>
   
     );
