@@ -5,6 +5,7 @@ import Settings from '../navigation/screens/Settings';
 import Profile from '../navigation/screens/Profile';
 import { Icon, Text, useTheme } from '@rneui/themed';
 import GetStarted from '../navigation/screens/GetStarted';
+import Contacts from './Contacts';
 
 const BottomNav = createBottomTabNavigator();
 

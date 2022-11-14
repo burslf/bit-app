@@ -8,6 +8,7 @@ const Settings = ({navigation}) => {
     
     const onLogout = () => {
         AsyncStorage.removeItem('registered');
+        navigation.navigate('Home');    
         navigation.navigate('GetStarted');
     }
 

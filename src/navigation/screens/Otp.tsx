@@ -13,7 +13,7 @@ const Otp = ({navigation}) => {
     // const phoneNumber:string = route.params.phoneNumber;
     const confirmCode = () => {
         AsyncStorage.setItem('registered', 'true', (err) => {
-            if (!err) navigation.navigate('Home')
+            if (!err) navigation.navigate('Drawer')
         });
     }
 
